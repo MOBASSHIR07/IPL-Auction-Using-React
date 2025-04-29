@@ -10,15 +10,39 @@ import AddedPlayer from './components/AddedPlayer/AddedPlayer'
 
 function App() {
 
+
+    const [coin,setCoin] = useState(0);
+      const claimFreecoin = () => {
+      
+          setCoin(prevCoin => prevCoin + 60000000);
+      };
+  
+
   const [addedPlayer , setAddedPlayer] = useState([]);
+
+  const [isAvailable, setIsAvailable] = useState(true);
+
+  // const categoryEventHandle = (isAvailable)=>{
+
+  //   setIsAvailable(isAvailable);
+
+  // }
 
 
   const addPlayerHandler = (player)=>{
-    console.log('Received player:', player);
-const newplayer = [...addedPlayer,player];
-setAddedPlayer(newplayer);
+    const isExist = addedPlayer.find(PL=>PL.id==player.id);
+    if(!isExist){
+      const newplayer = [...addedPlayer,player];
+      setAddedPlayer(newplayer);
+    }
+    else{
+      alert("Already exist")
+    }
+               
 
   }
+
+
 
   const removeButtonhandle = (playerCard)=>{
 
@@ -32,11 +56,16 @@ setAddedPlayer(newplayer);
 
   return (
     <>
-    <Header></Header>
-    <Category></Category>
-<Datafatcher addPlayerHandler ={addPlayerHandler} ></Datafatcher>
-<AddedPlayer addedPlayer={addedPlayer} removeButtonhandle={removeButtonhandle}></AddedPlayer>
+    <Header coin={coin} claimFreecoin={claimFreecoin}></Header>
+    <Category setIsAvailable={setIsAvailable} isAvailable={isAvailable}></Category>
+    <div>
+      
+    {
+        isAvailable?<Datafatcher addPlayerHandler ={addPlayerHandler} ></Datafatcher>:<AddedPlayer addedPlayer={addedPlayer} removeButtonhandle={removeButtonhandle}></AddedPlayer>
+      }
+    </div>
     
+
     </>
   )
 }

@@ -1,15 +1,15 @@
-import React, {  useState } from 'react';
+
 import logo from '../../assets/logo.png'; 
 import banner from '../../assets/banner-main.png'
 import bgshadow from '../../assets/bg-shadow.png'
 
-const Header = () => {
+const Header = ({claimFreecoin,coin}) => {
 
-    const [coin,setCoin] = useState(0);
-    const claimFreecoin = () => {
-        // Use the functional form of setState to ensure we're working with the latest state
-        setCoin(prevCoin => prevCoin + 60000000);
-    };
+    // const [coin,setCoin] = useState(0);
+    // const claimFreecoin = () => {
+    
+    //     setCoin(prevCoin => prevCoin + 60000000);
+    // };
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trash2 } from 'lucide-react'; // Make sure lucide-react is installed or replace with any trash icon
+import { Trash2 } from 'lucide-react'; 
 
 const ShowAddedPlayer = ({ player,   removeButtonhandle}) => {
   const { name, batting_style, image } = player;

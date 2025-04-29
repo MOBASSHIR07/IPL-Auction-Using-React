@@ -5,7 +5,6 @@ import ShowAddedPlayer from '../ShowAddedPlayer/ShowAddedPlayer';
 const AddedPlayer = ({addedPlayer, removeButtonhandle}) => {
 
 
- 
 
 
     return (

@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
 
-const Category = () => {
-    const [isAvailable, setIsAvailable] = useState(true);
+
+
+const Category = ({setIsAvailable,isAvailable}) => {
+   
+
+
+// const [isAvailable, setIsAvailable] = useState(true);
+
+
+
+    
 
     return (
         <div>
