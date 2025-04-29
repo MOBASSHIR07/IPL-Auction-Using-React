@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Showcard = ({ player }) => {
+const Showcard = ({ player,addPlayerHandler }) => {
   const { id, name, country, role, batting_style, price, image } = player;
 
   return (
@@ -22,7 +22,7 @@ const Showcard = ({ player }) => {
         <p><span className="font-semibold">Price:</span> ${price.toLocaleString()}</p>
       </div>
 
-      <button className="mt-4 w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition duration-300 shadow-md">
+      <button onClick={()=>addPlayerHandler(player)} className="mt-4 w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition duration-300 shadow-md">
         ➕ Add Player
       </button>
       
