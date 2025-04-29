@@ -14,8 +14,20 @@ function App() {
     const [coin,setCoin] = useState(0);
       const claimFreecoin = () => {
       
-          setCoin(prevCoin => prevCoin + 60000000);
+          setCoin(prevCoin => prevCoin + 6000000);
       };
+
+      const deductCoinByAddingPlayer = (price)=>{
+        if(price<=coin && coin > 0)
+        {
+          const remainingPrice = coin - price;
+          setCoin(remainingPrice);
+        }
+        else{
+          return;
+        }
+      
+      }
   
 
   const [addedPlayer , setAddedPlayer] = useState([]);
@@ -31,16 +43,28 @@ function App() {
 
   const addPlayerHandler = (player)=>{
     const isExist = addedPlayer.find(PL=>PL.id==player.id);
-    if(!isExist){
-      const newplayer = [...addedPlayer,player];
-      setAddedPlayer(newplayer);
-    }
-    else{
-      alert("Already exist")
-    }
-               
-
-  }
+    deductCoinByAddingPlayer(player.price)
+   if(addedPlayer.length<6){
+    if(coin>=player.price)
+      {
+       if(!isExist){
+         const newplayer = [...addedPlayer,player];
+         setAddedPlayer(newplayer);
+       }
+      
+       else{
+         alert("Already exist")
+       }
+      }
+      else{
+       alert("Not enough money")
+      }            
+   
+     }
+     else{
+      alert("Maximum Player Added")
+     }
+   }
 
 
 
