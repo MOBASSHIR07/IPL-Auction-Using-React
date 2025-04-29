@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Category from './components/Category/Category';
 import Datafatcher from './components/Datafatcher/Datafatcher';
 import AddedPlayer from './components/AddedPlayer/AddedPlayer';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [coin, setCoin] = useState(0);
@@ -79,8 +80,8 @@ function App() {
     />
       <Header coin={coin} claimFreecoin={claimFreecoin} />
       
-      <div className="container mx-auto px-4 py-8">
-        <Category setIsAvailable={setIsAvailable} isAvailable={isAvailable} />
+      <div className="container mx-auto px-4 py-8 mb-20">
+        <Category showplayerReport={addedPlayer.length} setIsAvailable={setIsAvailable} isAvailable={isAvailable} />
         
         <div className="mt-8">
           {isAvailable ? (
@@ -93,6 +94,9 @@ function App() {
             />
           )}
         </div>
+      </div>
+      <div>
+        <Footer></Footer>
       </div>
     </div>
   );
