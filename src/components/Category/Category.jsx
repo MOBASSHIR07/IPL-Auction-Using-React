@@ -15,7 +15,7 @@ const Category = ({setIsAvailable,isAvailable,showplayerReport}) => {
         <div>
             <div className='flex justify-between mb-4 ml-4'>
             <h1 className="text-xl font-bold">
-                          {isAvailable ? `Available (${showplayerReport}/6)` : 'Selected'}
+                          {isAvailable ? 'Available' : `Selected (${showplayerReport}/6)`}
                                                                                             </h1>
                 <div className='flex gap-4'>
                     <button
